@@ -30,7 +30,7 @@
 
     <div class="padding text-center">
         <button onclick="slp.login()">Login</button>
-        <a id="reg_btn" href="#register-page"><button>Register</button></a>
+        <button><a id="reg_btn" href="#register-page">Register</a></button>
     </div>
     <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
 </div>
@@ -40,7 +40,7 @@
     <div data-role="header">
         <h1>Register</h1>
     </div>
-    
+
     <br><br><br>
     <div data-role="content">
         <div class="list list-inset padding-top">
@@ -57,10 +57,10 @@
                 <input type="text" id="reg_email" placeholder="Email">
             </label>
             <label class="item item-input">
-                <input type="text" id="reg_pwd" placeholder="Password">
+                <input type="password" id="reg_pwd" placeholder="Password">
             </label>
             <label class="item item-input">
-                <input type="text" id="reg_pwd_again" placeholder="Password Confirm">
+                <input type="password" id="reg_pwd_again" placeholder="Password Confirm">
             </label>
         </div>
     </div>
@@ -84,14 +84,14 @@
         <div id="show"></div>
         <ul data-role="listview">
             <h2> Please select your course </h2>
-            <li><a href="#cmpe206" data-rel="dialog" data-transition="pop">CMPE 206</a></li>
-            <li><a href="#cmpe235" data-rel="dialog" data-transition="pop">CMPE 235</a></li>
-            <li><a href="#cmpe285" data-rel="dialog" data-transition="pop">CMPE 285</a></li>
+            <li><a href="#cmpe206">CMPE 206</a></li>
+            <li><a href="#cmpe235">CMPE 235</a></li>
+            <li><a href="#cmpe285">CMPE 285</a></li>
         </ul>
     </div>
 </div>
 
-<div data-role="page" class="mainPage" data-theme="1" id="mainPage">
+<div data-role="page" class="mainPage" id="mainPage">
     <br>
     <div data-role="header">
         <h1>Compute My Grade</h1>
@@ -222,7 +222,6 @@
 
 <div data-role="page" id="setMaxPointsPage" data-add-back-btn="true">
     <br/>
-
     <div data-role="header">
         <a href="#mainPage" id='settingsButton' class="ui-btn-right" data-role="button" data-icon="gear">Return
         </a>
@@ -256,36 +255,37 @@
 </div>
 
 <div data-role="page" id="cmpe235">
+    <br>
     <div data-role="header">
         <a href="#home_page" data-icon="delete">Go Back</a>
-
         <h1>Description</h1>
     </div>
+    <br>
     <div data-role="content" id="content2">
 
     </div>
 </div>
 
 <div data-role="page" id="cmpe285">
+    <br>
     <div data-role="header">
         <a href="#home_page" data-icon="delete">Go Back</a>
-
         <h1>Description</h1>
     </div>
+    <br>
     <div data-role="content" id="content3">
 
     </div>
 </div>
 
 <div data-role="page" id="cmpe206">
+    <br>
     <div data-role="header">
         <a href="#home_page" data-icon="delete">Go Back</a>
-
         <h1>Description</h1>
     </div>
-
+    <br>
     <div data-role="content" id="content4">
-
     </div>
 </div>
 
