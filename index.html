@@ -1,7 +1,8 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <meta name="viewport" content="initial-scale=1, minimum-scale=1, maximum-scale=1">
+    <!--<meta name="viewport" content="initial-scale=1, minimum-scale=1, maximum-scale=1">-->
+    <meta name='viewport' content='width=device-width, initial-scale=1, user-scalable=no' />
     <meta charset="utf-8">
     <title>Compute My Grade</title>
     <link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.2/jquery.mobile-1.4.2.min.css"/>
@@ -9,28 +10,90 @@
 </head>
 
 <body>
-<div data-role="page" class="mainpage1" id="mainpage1">
+
+<div data-role="page" id="login-page">
+
+    <br><br><br><br><br><br><br>
+
+    <h1 align="center">Compute My Grade</h1>
+
+    <br><br>
+
+    <div class="list list-inset padding-top">
+        <label class="item item-input">
+            <input type="text" id="login_sid" placeholder="Student ID">
+        </label>
+        <label class="item item-input">
+            <input type="password" id="login_pwd" placeholder="Password">
+        </label>
+    </div>
+
+    <div class="padding text-center">
+        <button onclick="slp.login()">Login</button>
+        <a id="reg_btn" href="#register-page"><button>Register</button></a>
+    </div>
+    <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+</div>
+
+<div data-role="page" id="register-page">
     <br>
-    <div data-role="header" id="header1">
+    <div data-role="header">
+        <h1>Register</h1>
+    </div>
+    
+    <br><br><br>
+    <div data-role="content">
+        <div class="list list-inset padding-top">
+            <label class="item item-input">
+                <input type="text" id="reg_fn" placeholder="First Name">
+            </label>
+            <label class="item item-input">
+                <input type="text" id="reg_ln" placeholder="Last Name">
+            </label>
+            <label class="item item-input">
+                <input type="text" id="reg_sid" placeholder="Student ID">
+            </label>
+            <label class="item item-input">
+                <input type="text" id="reg_email" placeholder="Email">
+            </label>
+            <label class="item item-input">
+                <input type="text" id="reg_pwd" placeholder="Password">
+            </label>
+            <label class="item item-input">
+                <input type="text" id="reg_pwd_again" placeholder="Password Confirm">
+            </label>
+        </div>
+    </div>
+
+    <br><br><br><br>
+
+    <div class="padding text-center">
+        <button onclick="slp.register()">Submit</button>
+    </div>
+    <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+</div>
+
+<div data-role="page" class="home_page" id="home_page">
+    <br>
+    <div data-role="header">
         <h1>Main Page</h1>
-        <a href="#mainPage" id='settingsButton' class="ui-btn-right" data-role="button" data-icon="gear">Compute
-        </a>
+        <a href="#mainPage" id='settingsButton' class="ui-btn-right" data-role="button" data-icon="gear">Compute</a>
     </div>
 
     <div data-role="content" id="content1">
         <div id="show"></div>
         <ul data-role="listview">
             <h2> Please select your course </h2>
-            <li><a href="#cmpe206" data-rel="dialog" data-transition="fade" data-inline="true">CMPE 206</a></li>
+            <li><a href="#cmpe206" data-rel="dialog" data-transition="pop">CMPE 206</a></li>
             <li><a href="#cmpe235" data-rel="dialog" data-transition="pop">CMPE 235</a></li>
-            <li><a href="#cmpe285" data-rel="dialog" data-transition="flip">CMPE 285</a></li>
+            <li><a href="#cmpe285" data-rel="dialog" data-transition="pop">CMPE 285</a></li>
         </ul>
     </div>
 </div>
 
 <div data-role="page" class="mainPage" data-theme="1" id="mainPage">
     <br>
-    <div data-role="header" id="header1">
+    <div data-role="header">
         <h1>Compute My Grade</h1>
         <a href="#settingsPage" id='settingsButton' class="ui-btn-right" data-role="button" data-icon="gear">Settings
         </a>
@@ -74,7 +137,7 @@
 <div data-role="page" class="settingPage" id="settingsPage" data-add-back-btn="true">
     <br/>
 
-    <div data-role="header" id="header1">
+    <div data-role="header">
         <h1>Grade - Settings</h1>
         <a href="#mainPage" id='settingsButton' class="ui-btn-right" data-role="button" data-icon="gear">Return
         </a>
@@ -94,7 +157,7 @@
 <div data-role="page" class="setGradeCutOffPage" id="setGradeCutOffPage" data-add-back-btn="true">
     <br/>
 
-    <div data-role="header" id="header1">
+    <div data-role="header">
         <h1>Grade - Settings</h1>
         <a href="#mainPage" id='settingsButton' class="ui-btn-right" data-role="button" data-icon="gear">Return
         </a>
@@ -123,11 +186,10 @@
     </div>
 </div>
 
-
 <div data-role="page" id="setScalingFactorsPage" data-add-back-btn="true">
     <br/>
 
-    <div data-role="header" id="header1">
+    <div data-role="header">
         <!--a href="#" id='cancelSettings' class="ui-btn ui-icon-delete ui-btn-icon-left" data-rel="back">Cancel</a-->
         <h1>Grade - Settings</h1>
         <a href="#mainPage" id='settingsButton' class="ui-btn-right" data-role="button" data-icon="gear">Return
@@ -158,11 +220,10 @@
 
 </div>
 
-
 <div data-role="page" id="setMaxPointsPage" data-add-back-btn="true">
     <br/>
 
-    <div data-role="header" id="header1">
+    <div data-role="header">
         <a href="#mainPage" id='settingsButton' class="ui-btn-right" data-role="button" data-icon="gear">Return
         </a>
 
@@ -196,7 +257,7 @@
 
 <div data-role="page" id="cmpe235">
     <div data-role="header">
-        <a href="#mainpage1" data-icon="delete">Go Back</a>
+        <a href="#home_page" data-icon="delete">Go Back</a>
 
         <h1>Description</h1>
     </div>
@@ -207,7 +268,7 @@
 
 <div data-role="page" id="cmpe285">
     <div data-role="header">
-        <a href="#mainpage1" data-icon="delete">Go Back</a>
+        <a href="#home_page" data-icon="delete">Go Back</a>
 
         <h1>Description</h1>
     </div>
@@ -218,7 +279,7 @@
 
 <div data-role="page" id="cmpe206">
     <div data-role="header">
-        <a href="#mainpage1" data-icon="delete">Go Back</a>
+        <a href="#home_page" data-icon="delete">Go Back</a>
 
         <h1>Description</h1>
     </div>
@@ -234,6 +295,7 @@
 <script src="js/cordova.js"></script>
 <script src="js/grader.js"></script>
 <script src="js/app.js"></script>
+<script src="js/slp.js"></script>
 
 </body>
 </html>

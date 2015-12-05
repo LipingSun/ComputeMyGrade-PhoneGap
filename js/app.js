@@ -1,3 +1,7 @@
+var host = "http://compute-my-grade.herokuapp.com";
+
+document.addEventListener('touchmove', function(e) { e.preventDefault(); }, false);
+
 function clearText() {
     var gradeACutOff = document.getElementById("gradeACutOff");
     var gradeBCutOff = document.getElementById("gradeBCutOff");
@@ -10,14 +14,9 @@ function clearText() {
     gradeDCutOff.value = null;
 }
 
-showInfo();
-function showInfo() {
-    var xmlhttp = new XMLHttpRequest();
-    var url = "http://compute-my-grade.herokuapp.com/api/students?1005";
+//showInfo();
+function showInfo(arr) {
 
-    xmlhttp.onreadystatechange = function () {
-        if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
-            var arr = JSON.parse(xmlhttp.responseText);
             var title = '<h2>' + ' Information' + '</h2>' + '<br/>';
 
             var out = '<table style="width:90%" align="center">' +
@@ -43,10 +42,6 @@ function showInfo() {
                 '</table>' + '<br/><br/>';
 
             document.getElementById("show").innerHTML = title + out;
-        }
-    };
-    xmlhttp.open("GET", url, true);
-    xmlhttp.send();
 }
 
 
