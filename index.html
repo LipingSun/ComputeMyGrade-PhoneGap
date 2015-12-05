@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta name="viewport" content="initial-scale=1, minimum-scale=1, maximum-scale=1">
+            <meta charset="utf-8">
+                <title>Compute My Grade</title>
+                <!--link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css"-->
+                <link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.2/jquery.mobile-1.4.2.min.css" />
+                <script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
+                <!--script src="https://code.jquery.com/ui/1.11.4/jquery-ui.min.js"></script-->
+                <!--link rel="stylesheet" href="/resources/demos/style.css"-->
+                <script src="http://code.jquery.com/mobile/1.4.2/jquery.mobile-1.4.2.min.js"></script>
+                <script src="js/app.js"></script>
+                <!--script>
+                 $(function(){
+                 $("#accordion").accordion();
+                 });
+                 </script-->
+                <style>
+                
+                .mainpage1, .mainPage, .settingPage,.setGradeCutOffPage,#setScalingFactorsPage, #setMaxPointsPage {
+                     background-image: url("/Users/sunwei/Documents/background/images.jpeg");
+                }
+                h1,#settingsButton{
+                    color:white;
+                    background-color:black
+                }
+                #header1{
+                    background-color:black
+                }
+                h2,p{
+                    text-align:center
+                }
+                
+               </style>
+                
+                <script type="text/javascript">
+                    function clearText(){
+                        var gradeACutOff =  document.getElementById("gradeACutOff");
+                        var gradeBCutOff = document.getElementById("gradeBCutOff");
+                        var gradeCCutOff = document.getElementById("gradeCCutOff");
+                        var gradeDCutOff = document.getElementById("gradeDCutOff");
+                    
+                        gradeACutOff.value = null;
+                        gradeBCutOff.value = null;
+                        gradeCCutOff.value = null;
+                        gradeDCutOff.value = null;
+                    }
+                
+                </script>
+                </head>
+    
+    
+    <body>
+        <div data-role="page" class="mainpage1" id="mainpage1">
+            </br>
+            <div data-role="header" id="header1">
+                <h1>Main Page</h1>
+                <a href="#mainPage" id='settingsButton' class="ui-btn-right" data-role="button" data-icon="gear">Compute
+                </a>
+            </div>
+            
+            
+            <div data-role="content" id="content1">
+                <div id="show"></div>
+                <script type="text/javascript">
+                    showInfo();
+                    function showInfo() {
+                      var xmlhttp = new XMLHttpRequest();
+                      var url = "http://www.d2cloud.us/api/students?1005";
+
+                       xmlhttp.onreadystatechange = function() {
+                        if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+                            var arr = JSON.parse(xmlhttp.responseText);
+                            var title = '<h2>' + ' Information' +'</h2>' + '<br/>';
+
+                            var out = '<table style="width:90%" align="center">' +
+
+
+                    '<tr align="center" bgcolor="#FFCC00" height="40px">' +
+                    '<td width="90px">' + 'SId' + '</td>' +
+                    '<td width="80px">' + arr.sid + '</td></tr>' +
+                    '<tr align="center" bgcolor="#FFCC00" height="40px">' +
+                    '<td width="90px">' + 'LastName' + '</td>' +
+                    '<td width="80px">' + arr.lastName + '</td></tr>' +
+                    '<tr align="center" bgcolor="#FFCC00" height="40px">' +
+                    '<td width="90px">' + 'FirstName' + '</td>' +
+                    '<td width="80px">' + arr.firstName + '</td></tr>' +
+                    '<tr align="center" bgcolor="#FFCC00" height="40px">' +
+                    '<td width="90px">' + 'Email' + '</td>' +
+                    '<td width="80px">' + arr.email + '</td></tr>' +
+                    '<tr align="center" bgcolor="#FFCC00" height="40px">' +
+                    '<td width="90px">' + 'Phone' + '</td>' +
+                    '<td width="80px">' + arr.phone + '</td></tr>' +
+                    '</tr>' +
+
+                    '</table>' + '<br/><br/>';
+
+                    document.getElementById("show").innerHTML = title+out;
+                        }
+                    };
+                    xmlhttp.open("GET", url, true);
+                    xmlhttp.send();
+                }
+
+                </script>
+
+
+                <ul data-role="listview" >
+                <H2> Please select your course </H2>
+                <li><a href="#cmpe206" data-rel="dialog" data-transition="fade" data-inline="true">CMPE 206</a> </li>
+                <li><a href="#cmpe235" data-rel="dialog" data-transition="pop">CMPE 235</a> </li>
+                <li><a href="#cmpe285" data-rel="dialog" data-transition="flip">CMPE 285</a> </li>
+                </ul>
+           </div>
+        </div>
+
+        <div data-role="page" class="mainPage" data-theme="1" id="mainPage" >
+            </br>
+            <div data-role="header" id="header1">
+                <h1>Compute My Grade</h1>
+                <a href="#settingsPage" id='settingsButton' class="ui-btn-right" data-role="button" data-icon="gear">Settings
+                </a>
+            </div>
+
+            <div data-role="content" class="content">
+                <form>
+                    <div data-role="fieldcontain">
+                        <label for="homework">Homework</label>
+                        <input type="number" name="homework" id="homework" data-clear-btn="true" maxlength="3" value="" placeholder="Enter homework points here">
+
+                            <label for="lab">Lab</label>
+                            <input type="number" name="lab" id="lab" data-clear-btn="true" maxlength="3" value="" placeholder="Enter lab points here">
+
+                                <label for="project">Project</label>
+                                <input type="number" name="project" id="project" data-clear-btn="true" maxlength="3" value="" placeholder="Enter project points here">
+
+                                    <label for="presentation">Presentation</label>
+                                    <input type="number" name="presentation" id="presentation" data-clear-btn="true" maxlength="3" value="" placeholder="Enter presentation points here">
+
+                                        <label for="midterm">Midterm</label>
+                                        <input type="number" name="midterm" id="midterm" data-clear-btn="true" maxlength="3" value="" placeholder="Enter midterm points here">
+
+                                            <label for="final">Final</label>
+                                            <input type="number" name="final" id="final" data-clear-btn="true" maxlength="3" value="" placeholder="Enter Final points here">
+
+                                                </div>
+                    <p style="text-align: center;">
+                    <a href="#" id="computeGrade" data-role="button" data-icon="check">Compute Grade</a>
+                    </p>
+                    <p class="final grade">
+                    <label>Final Grade</label>
+                    <span id="finalgrade">TBD</span>
+                    </p>
+                </form>
+            </div>
+
+        </div>
+
+        <div data-role="page" class="settingPage" id="settingsPage" data-add-back-btn="true" >
+            <br/>
+
+            <div data-role="header" id="header1">
+                <h1>Grade - Settings</h1>
+                <a href="#mainPage" id='settingsButton' class="ui-btn-right" data-role="button" data-icon="gear">Return
+                </a>
+
+            </div>
+
+
+            <div data-role="content">
+                <ul data-role="listview">
+                    <li><a href="#setGradeCutOffPage">Set Grade Cut-offs</a></li>
+                    <li><a href="#setScalingFactorsPage">Set Scaling Factors</a></li>
+                    <li><a href="#setMaxPointsPage">Set Maximum Points</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <div data-role="page" class="setGradeCutOffPage" id="setGradeCutOffPage" data-add-back-btn="true" >
+            <br/>
+            <div data-role="header" id="header1">
+                <h1>Grade - Settings</h1>
+                <a href="#mainPage" id='settingsButton' class="ui-btn-right" data-role="button" data-icon="gear">Return
+                </a>
+            </div>
+
+            <div data-role="content" class="" id="accordion">
+                <h2>Set Grade Cut-offs</h2>
+                <form>
+                    <label for="gradeACutOff">A Cut Off</label>
+                    <input type="number" name="gradeACutOff" id="gradeACutOff" value="" placeholder="Grade A Cutoff at">
+                    <label for="gradeBCutOff">B Cut Off</label>
+                    <input type="number" name="gradeBCutOff" id="gradeBCutOff" value="" placeholder="Grade B Cutoff at">
+                    <label for="gradeCCutOff">C Cut Off</label>
+                    <input type="number" name="gradeCCutOff" id="gradeCCutOff" value="" placeholder="Grade C Cutoff at">
+                    <label for="gradeDCutOff">D Cut Off</label>
+                    <input type="number" name="gradeDCutOff" id="gradeDCutOff" value="" placeholder="Grade D Cutoff at">
+                    <p style="text-align: center;">
+                        <a href='#setScalingFactorsPage' id='saveGradeCutOffs' data-role="button" data-inline="true" data-icon="check">Save and Next</a>
+
+                        <button type="button" onclick="clearText()">Reset</button>
+
+                    </p>
+                </form>
+            </div>
+        </div>
+
+
+        <div data-role="page" id="setScalingFactorsPage" data-add-back-btn="true">
+            <br/>
+            <div data-role="header" id="header1">
+                <!--a href="#" id='cancelSettings' class="ui-btn ui-icon-delete ui-btn-icon-left" data-rel="back">Cancel</a-->
+                <h1>Grade - Settings</h1>
+                <a href="#mainPage" id='settingsButton' class="ui-btn-right" data-role="button" data-icon="gear">Return
+                </a>
+            </div>
+            <div data-role="content" class="">
+                <h2>Set Scaling Factors (%)</h2>
+                <form>
+                    <label for="homeworkScalingFactor">Homework</label>
+                    <input type="range" name="homeworkScalingFactor" id="homeworkScalingFactor" min="0" max="100"value="0">
+                    <label for="labScalingFactor">Lab</label>
+                    <input type="range" name="labScalingFactor" id="labScalingFactor" min="0" max="100"value="0">
+                    <label for="projectScalingFactor">Project</label>
+                    <input type="range" name="projectScalingFactor" id="projectScalingFactor" min="0" max="100"value="0">
+                    <labe for="presentationScalingFactor">Presentation</label>
+                    <input type="range" name="presentationScalingFactor" id="presentationScalingFactor" min="0" max="100"value="0">
+                    <label for="midtermScalingFactor">Midterm</label>
+                    <input type="range" name="midtermScalingFactor" id="midtermScalingFactor" min="0" max="100"value="0">
+                    <label for="finalScalingFactor">Final</label>
+                    <input type="range" name="finalScalingFactor" id="finalScalingFactor" min="0" max="100"value="0">
+                    <p style="text-align: center;">
+                    <a href="#setMaxPointsPage" id='checkRatios' data-role="button" data-inline="true" data-icon="check">Check &amp Save</a>
+                    </p>
+                </form>
+            </div>
+
+        </div>
+
+
+          <div data-role="page" id="setMaxPointsPage" data-add-back-btn="true">
+              <br/>
+               <div data-role="header" id="header1">
+               <a href="#mainPage" id='settingsButton' class="ui-btn-right" data-role="button" data-icon="gear">Return
+               </a>
+                   <h1>Grade - Settings</h1>
+               </div>
+
+                <div data-role="content" class="">
+                    <h2>Set Maxinum Points</h2>
+                    <form>
+                      <label for="homeworkMax">Homework</label>
+                      <input type="number" name="homeworkMax" id="homeworkMax" value="" placeholder="100">
+                      <label for="labMax">Lab</label>
+                      <input type="number" name="labMax" id="labMax" value="" placeholder="100">
+                      <label for="projectMax">Project</label>
+                      <input type="number" name="projectMax" id="projectMax" value="" placeholder="100">
+                      <label for="presentationMax">Presentation</label>
+                      <input type="number" name="presentationMax" id="presentationMax" value="" placeholder="100">
+                      <label for="midtermMax">Midterm</label>
+                      <input type="number" name="midtermMax" id="midtermMax" value="" placeholder="100">
+                      <label for="finalMax">Final</label>
+                      <input type="number" name="finalMax" id="finalMax" value="" placeholder="100">
+                      <p style="text-align: center;">
+                      <a href="#mainPage" id='saveMaxSettings' data-role="button" data-inline="true" data-icon="check">Save and Next</a>
+                      </p>
+               </form>
+            </div>
+            <br/><br/>
+        </div>
+
+        <div data-role="page" id="cmpe235">
+            <div data-role="header">
+                <a href="#mainpage1" data-icon="delete">Go Back</a>
+                <h1>Description</h1>
+            </div>
+            <div data-role="content" id="content2">
+                <script type="text/javascript">
+
+                    show235();
+
+                    function show235() {
+
+                        var xmlhttp = new XMLHttpRequest();
+                        var url = "http://www.d2cloud.us/api/courses/1030";
+
+
+                        xmlhttp.onreadystatechange = function() {
+                            if (xmlhttp.readyState == 4 && xmlhttp.status ==200) {
+                                var arr = JSON.parse(xmlhttp.responseText );
+
+
+
+                        document.getElementById("content2").innerHTML = arr.description;
+
+                            }
+                        };
+                        xmlhttp.open("GET", url, true);
+                        xmlhttp.send();
+                    }
+                </script>
+            </div>
+        </div>
+
+        <div data-role="page" id="cmpe285">
+            <div data-role="header">
+                <a href="#mainpage1" data-icon="delete">Go Back</a>
+                <h1>Description</h1>
+            </div>
+            <div data-role="content" id="content3">
+                <script type="text/javascript">
+                    showDes();
+
+                function showDes() {
+                    var xmlhttp = new XMLHttpRequest();
+                    var url = "http://www.d2cloud.us/api/courses/1031";
+
+
+
+                    xmlhttp.onreadystatechange = function() {
+                        if (xmlhttp.readyState == 4 && xmlhttp.status ==200) {
+                            var arr = JSON.parse(xmlhttp.responseText );
+
+                    document.getElementById("content3").innerHTML = arr.description;
+
+                        }
+                    };
+                    xmlhttp.open("GET", url, true);
+                    xmlhttp.send();
+                }
+                </script>
+            </div>
+        </div>
+
+        <div data-role="page" id="cmpe206">
+            <div data-role="header">
+                <a href="#mainpage1" data-icon="delete">Go Back</a>
+                <h1>Description</h1>
+            </div>
+
+            <div data-role="content" id="content4">
+                <script type="text/javascript">
+                    var xmlhttp = new XMLHttpRequest();
+                    var url = "http://www.d2cloud.us/api/courses/1029";
+                    
+                    xmlhttp.onreadystatechange = function() {
+                        if (xmlhttp.readyState == 4 && xmlhttp.status ==200) {
+                            var myArr = JSON.parse(xmlhttp.responseText );
+                            
+                            desInfo(myArr);
+                        }
+                    };
+                    xmlhttp.open("GET", url, true);
+                    xmlhttp.send();
+                
+                
+                    function desInfo(arr) {
+                        var out = "";
+                        var i;
+                        
+                        document.getElementById("content4").innerHTML = arr.description;
+                    }
+                </script>
+            </div>
+        </div>
+
+        
+        <script type="text/javascript" src="js/cordova.js"></script>
+        <script src="js/app.js"></script>
+    </body>
+</html>
