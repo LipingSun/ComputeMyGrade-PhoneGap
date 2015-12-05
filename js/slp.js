@@ -27,11 +27,14 @@ var slp = {
 
         //$.ajax({
         //    type: "POST",
-        //    url: host + "api/register",
-        //    data: JSON.stringify({login: $("#reg_sid").val(),email:$("#reg_email").val(),password:$("#reg_pwd").val()}),
+        //    url: host + "api/students",
+        //    data: JSON.stringify({sid:$("#reg_sid").val(),email:$("#reg_email").val(),lastName:$("#reg_ln").val(),firstName:$("#reg_fn").val()}),
         //    contentType: "application/json",
         //    success: function (data) {
         //        console.log("a:" + data);
+        //    },
+        //    error: function (err) {
+        //        console.log("error:" + err)
         //    }
         //});
 
