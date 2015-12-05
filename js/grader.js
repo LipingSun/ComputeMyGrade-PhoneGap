@@ -32,13 +32,20 @@
   
   var computeGrade = function(){
   var homeworkPoints = Number($('#homework').val());
-  if(homeworkPoints > homeworkM){alert(homeworkPoints + " is larger than " + homeworkM);}
   var labPoints = Number($('#lab').val());
   var projectPoints = Number($('#project').val());
   var presentationPoints = Number($('#presentation').val());
   var midtermPoints = Number($('#midterm').val());
   var finalPoints = Number($('#final').val());
-  
+
+  if(homeworkPoints > homeworkM){alert("Homework points " + homeworkPoints + " is larger than maximum points " + homeworkM); return;}
+  if(labPoints > labM){alert("Lab points " + labPoints + " is larger than maximum points " + labM); return;}
+  if(projectPoints > projectM){alert("Project points " + projectPoints + " is larger than maximum points " + projectM); return;}
+  if(presentationPoints > presentationM){alert("Presentation points " + presentationPoints + " is larger than maximum points " + presetationM); return;}
+  if(midtermPoints > midtermM){alert("Midterm points " + midtermPoints + " is larger than maximum points " + midtermM); return;}
+  if(finalPoints > finalM){alert("Final points " + finalPoints + " is larger than maximum points " + finalM); return;}
+
+
   var assignments = [];
   assignments.push(homeworkPoints);
   assignments.push(labPoints);
