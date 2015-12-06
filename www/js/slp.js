@@ -31,6 +31,9 @@ var slp = {
             data: JSON.stringify({login: $("#reg_sid").val(),email:$("#reg_email").val(),password:$("#reg_pwd").val()}),
             contentType: "application/json",
             crossDomain: true,
+            headers: {
+                'MyCustomHeader': 'important information'
+            },
             xhrFields: {
                 withCredentials: true
             },
