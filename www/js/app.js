@@ -105,3 +105,52 @@ function desInfo(arr) {
 
     document.getElementById("content4").innerHTML = arr.description;
 }
+
+/************************************************
+ Validation Functions
+ *************************************************/
+
+function checkPassword(){
+    if($(this).val().length < 6) {
+        alert("The minimum password length is 6 !");
+        return;
+    }
+}
+
+function confirmPassword(){
+    if($(this).val() !== $("#reg_pwd").val()){
+        alert("Your password does not match!");
+        return;
+    }
+}
+
+function validateEmail(){
+    var x = document.getElementById("reg_email").value;
+    var atpos = x.indexOf("@");
+    var dotpos = x.lastIndexOf(".");
+    if (atpos<1 || dotpos<atpos+2 || dotpos+2>=x.length)
+    {
+        alert("Please input a valid e-mail address");
+        return;
+    }
+}
+
+//function regValidate() {
+//    if ($("#reg_pwd").val().length < 6) {
+//        alert("The minimum password length is 6 !");
+//        return;
+//    }
+//
+//    if ($("#reg_pwd_again").val() !== $("#reg_pwd").val()) {
+//        alert("Your password does not match!");
+//        return;
+//    }
+//
+//    var email = $("reg_email").val();
+//    var atpos = email.indexOf("@");
+//    var dotpos = email.lastIndexOf(".");
+//    if (atpos < 1 || dotpos < atpos + 2 || dotpos + 2 >= x.length) {
+//        alert("Please input a valid e-mail address");
+//        return;
+//    }
+//}

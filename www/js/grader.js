@@ -274,18 +274,21 @@
   /**************************************************
    * Set up event handler
    *************************************************/
-  
+
   $( document ).on( "ready", function()
-                   {
-                   $('#saveMaxSettings').on('click', saveMaxSettings);
-                   $('#computeGrade').on('click', computeGrade);
-                   $('#saveGradeCutOffs').on('click', saveGradeCutOffs);
-                   $('#cancelSettings').on('click', cancelSettings);
-                   $('#checkRatios').on('click', checkSaveScalingFactor);
-                   $('#settingsButton').on('click', showSavedGradeCutOffs);
-                   
-                   
-                   });
+  {
+    $('#saveMaxSettings').on('click', saveMaxSettings);
+    $('#computeGrade').on('click', computeGrade);
+    $('#saveGradeCutOffs').on('click', saveGradeCutOffs);
+    $('#cancelSettings').on('click', cancelSettings);
+    $('#checkRatios').on('click', checkSaveScalingFactor);
+    $('#settingsButton').on('click', showSavedGradeCutOffs);
+    //$('#reg_submit').on('click', regValidate);
+
+    $("#reg_pwd").blur(checkPassword);
+    $("#reg_pwd_again").on('focusout', confirmPassword);
+    $("#reg_email").blur(validateEmail);
+  });
   
   // Load plugin
   $( document ).on( "deviceready", function(){
