@@ -18,19 +18,20 @@
     <h1 align="center">Compute My Grade</h1>
 
     <br><br>
+    <div data-role="content">
+        <div class="list list-inset padding-top">
+            <label class="item item-input">
+                <input type="text" id="login_sid" placeholder="Student ID">
+            </label>
+            <label class="item item-input">
+                <input type="password" id="login_pwd" placeholder="Password">
+            </label>
+        </div>
 
-    <div class="list list-inset padding-top">
-        <label class="item item-input">
-            <input type="text" id="login_sid" placeholder="Student ID">
-        </label>
-        <label class="item item-input">
-            <input type="password" id="login_pwd" placeholder="Password">
-        </label>
-    </div>
-
-    <div class="padding text-center">
-        <button onclick="slp.login()">Login</button>
-        <button><a id="reg_btn" href="#register-page">Register</a></button>
+        <div class="padding text-center">
+            <button onclick="slp.login()">Login</button>
+            <button><a id="reg_btn" href="#register-page">Register</a></button>
+        </div>
     </div>
     <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
 </div>
@@ -57,19 +58,23 @@
                 <input type="text" id="reg_email" placeholder="Email">
             </label>
             <label class="item item-input">
+                <input type="text" id="reg_phone" placeholder="Phone">
+            </label>
+            <label class="item item-input">
                 <input type="password" id="reg_pwd" placeholder="Password">
             </label>
             <label class="item item-input">
                 <input type="password" id="reg_pwd_again" placeholder="Password Confirm">
             </label>
         </div>
+        <div class="padding text-center">
+            <button onclick="slp.register()">Submit</button>
+        </div>
     </div>
 
     <br><br><br><br>
 
-    <div class="padding text-center">
-        <button onclick="slp.register()">Submit</button>
-    </div>
+
     <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
 </div>
 
