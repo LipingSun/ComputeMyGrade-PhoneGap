@@ -111,46 +111,32 @@ function desInfo(arr) {
  *************************************************/
 
 function checkPassword(){
-    if($(this).val().length < 6) {
+    if($("#reg_pwd").val().length < 6) {
         alert("The minimum password length is 6 !");
-        return;
+        return false;
+    } else {
+        return true;
     }
 }
 
 function confirmPassword(){
-    if($(this).val() !== $("#reg_pwd").val()){
+    if($("#reg_pwd_confirm").val() !== $("#reg_pwd").val()){
         alert("Your password does not match!");
-        return;
+        return false;
+    } else {
+        return true;
     }
 }
 
 function validateEmail(){
-    var x = document.getElementById("reg_email").value;
+    var x = $("#reg_email").val();
     var atpos = x.indexOf("@");
     var dotpos = x.lastIndexOf(".");
     if (atpos<1 || dotpos<atpos+2 || dotpos+2>=x.length)
     {
         alert("Please input a valid e-mail address");
-        return;
+        return false;
+    } else {
+        return true;
     }
 }
-
-//function regValidate() {
-//    if ($("#reg_pwd").val().length < 6) {
-//        alert("The minimum password length is 6 !");
-//        return;
-//    }
-//
-//    if ($("#reg_pwd_again").val() !== $("#reg_pwd").val()) {
-//        alert("Your password does not match!");
-//        return;
-//    }
-//
-//    var email = $("reg_email").val();
-//    var atpos = email.indexOf("@");
-//    var dotpos = email.lastIndexOf(".");
-//    if (atpos < 1 || dotpos < atpos + 2 || dotpos + 2 >= x.length) {
-//        alert("Please input a valid e-mail address");
-//        return;
-//    }
-//}
