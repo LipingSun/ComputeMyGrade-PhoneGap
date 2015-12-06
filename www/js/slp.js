@@ -30,11 +30,13 @@ var slp = {
             url: host + "/api/register",
             data: JSON.stringify({login: $("#reg_sid").val(),email:$("#reg_email").val(),password:$("#reg_pwd").val()}),
             contentType: "application/json",
+            crossDomain: true,
             success: function (data) {
                 console.log("data:" + data);
                 $.ajax({
                     type: "POST",
                     url: host + "/api/students",
+                    crossDomain: true,
                     data: JSON.stringify({sid:$("#reg_sid").val(),email:$("#reg_email").val(),lastName:$("#reg_ln").val(),firstName:$("#reg_fn").val(),phone:$("#reg_phone").val()}),
                     contentType: "application/json",
                     success: function (data) {
