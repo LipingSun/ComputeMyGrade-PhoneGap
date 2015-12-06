@@ -1,3 +1,5 @@
+var host = "http://compute-my-grade.herokuapp.com";
+
 document.addEventListener('touchmove', function(e) { e.preventDefault(); }, false);
 
 function clearText() {
@@ -12,27 +14,22 @@ function clearText() {
     gradeDCutOff.value = null;
 }
 
-showInfo();
-function showInfo() {
-    var xmlhttp = new XMLHttpRequest();
-    var url = "http://compute-my-grade.herokuapp.com/api/students?1005";
+//showInfo();
+function showInfo(arr) {
 
-    xmlhttp.onreadystatechange = function () {
-        if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
-            var arr = JSON.parse(xmlhttp.responseText);
             var title = '<h2>' + ' Information' + '</h2>' + '<br/>';
 
             var out = '<table style="width:90%" align="center">' +
 
 
                 '<tr align="center" bgcolor="#FFCC00" height="40px">' +
-                '<td width="90px">' + 'SId' + '</td>' +
+                '<td width="90px">' + 'Student Id' + '</td>' +
                 '<td width="80px">' + arr.sid + '</td></tr>' +
                 '<tr align="center" bgcolor="#FFCC00" height="40px">' +
-                '<td width="90px">' + 'LastName' + '</td>' +
+                '<td width="90px">' + 'Last Name' + '</td>' +
                 '<td width="80px">' + arr.lastName + '</td></tr>' +
                 '<tr align="center" bgcolor="#FFCC00" height="40px">' +
-                '<td width="90px">' + 'FirstName' + '</td>' +
+                '<td width="90px">' + 'First Name' + '</td>' +
                 '<td width="80px">' + arr.firstName + '</td></tr>' +
                 '<tr align="center" bgcolor="#FFCC00" height="40px">' +
                 '<td width="90px">' + 'Email' + '</td>' +
@@ -45,10 +42,6 @@ function showInfo() {
                 '</table>' + '<br/><br/>';
 
             document.getElementById("show").innerHTML = title + out;
-        }
-    };
-    xmlhttp.open("GET", url, true);
-    xmlhttp.send();
 }
 
 
