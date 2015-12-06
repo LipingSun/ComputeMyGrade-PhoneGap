@@ -32,7 +32,7 @@ var slp = {
             contentType: "application/json",
             crossDomain: true,
             headers: {
-                'MyCustomHeader': 'important information'
+                'X-Requested-With': 'XMLHttpRequest'
             },
             xhrFields: {
                 withCredentials: true
