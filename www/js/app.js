@@ -23,13 +23,13 @@ function showInfo(arr) {
 
 
                 '<tr align="center" bgcolor="#FFCC00" height="40px">' +
-                '<td width="90px">' + 'SId' + '</td>' +
+                '<td width="90px">' + 'Student Id' + '</td>' +
                 '<td width="80px">' + arr.sid + '</td></tr>' +
                 '<tr align="center" bgcolor="#FFCC00" height="40px">' +
-                '<td width="90px">' + 'LastName' + '</td>' +
+                '<td width="90px">' + 'Last Name' + '</td>' +
                 '<td width="80px">' + arr.lastName + '</td></tr>' +
                 '<tr align="center" bgcolor="#FFCC00" height="40px">' +
-                '<td width="90px">' + 'FirstName' + '</td>' +
+                '<td width="90px">' + 'First Name' + '</td>' +
                 '<td width="80px">' + arr.firstName + '</td></tr>' +
                 '<tr align="center" bgcolor="#FFCC00" height="40px">' +
                 '<td width="90px">' + 'Email' + '</td>' +
