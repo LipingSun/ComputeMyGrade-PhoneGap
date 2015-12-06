@@ -37,6 +37,8 @@ var slp = {
             xhrFields: {
                 withCredentials: true
             },
+            username: $("#reg_sid").val(),
+            password: $("#reg_pwd").val(),
             success: function (data) {
                 console.log("data:" + data);
                 $.ajax({
